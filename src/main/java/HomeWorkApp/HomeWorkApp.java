@@ -6,21 +6,24 @@ public class HomeWorkApp {
 
     public static void main(String[] args) {
 
-        employee[] employeesList = new employee[5];
-        employeesList[0]= new employee("Смирнов Андрей Юрьевич","директор",
-                "SAU_smallcorp@gmail.com","88124521111",80000d,47);
-        employeesList[1]= new employee("Смирнов Татьяна Сергеевна","главный бухгалтер",
-                "STS_smallcorp@gmail.com","88124521112",40000d,40);
-        employeesList[2]= new employee("Мищенко Вадим Петрович","водитель",
-                "MVP_smallcorp@gmail.com","88124521122",25000d,50);
-        employeesList[3]= new employee("Дроздов Сергей Александрович","менеджер",
-                "DSA_smallcorp@gmail.com","88124521133",35000d,30);
-        employeesList[4]= new employee("Васильева Екатерина Андреевна","менеджер",
-                "VEA_smallcorp@gmail.com","88124521134",30000d,26);
+       AnimalFactory factory=new AnimalFactory();
 
-        for (employee employee:employeesList) {
-            if (employee.age>40) {employee.info();System.out.println();}
-        }
+       Dog dog1=factory.newDog();
+       dog1.run(100);
+       dog1.run(0);
+       dog1.run(-100);
+       dog1.run(-600);
+       dog1.swim(5);
+       Cat cat1=factory.newCat();
+       cat1.run(100);
+       cat1.run(0);
+       cat1.run(-100);
+       cat1.run(300);
+       cat1.swim(32);
+
+       System.out.println("Всего животных создано "+factory.getAnimalCounter());
+       System.out.println("Кошек создано "+factory.getCatCounter());
+       System.out.println("Собак создано "+factory.getDogCounter());
     }
 
 
