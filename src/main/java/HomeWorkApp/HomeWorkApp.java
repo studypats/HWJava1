@@ -6,25 +6,26 @@ public class HomeWorkApp {
 
     public static void main(String[] args) {
 
-       AnimalFactory factory=new AnimalFactory();
+        Cat[] cats = {
+                new Cat("Мурзик",5,false),
+                new Cat("Бурзик",10,false),
+                new Cat("Зурзик",10,true),
+                new Cat("Шурзик",10,false)
+        };
 
-       Dog dog1=factory.newDog();
-       dog1.run(100);
-       dog1.run(0);
-       dog1.run(-100);
-       dog1.run(-600);
-       dog1.swim(5);
-       Cat cat1=factory.newCat();
-       cat1.run(100);
-       cat1.run(0);
-       cat1.run(-100);
-       cat1.run(300);
-       cat1.swim(32);
+        Plate plate = new Plate(15);
+        plate.info();
 
-       System.out.println("Всего животных создано "+factory.getAnimalCounter());
-       System.out.println("Кошек создано "+factory.getCatCounter());
-       System.out.println("Собак создано "+factory.getDogCounter());
+        for (Cat cat: cats) {
+            cat.eat(plate);
+        }
+
+        plate.increaseFood(25);
+        System.out.println("в тарелку добавлена еда");
+        plate.info();
+
+        for (Cat cat: cats) {
+            cat.eat(plate);
+        }
     }
-
-
 }
